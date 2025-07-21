@@ -11,6 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 
 require('./config/mongoose.config')
 
-app.get('/api', (req, res) => res.send('Hello from server!'));
+require('../server/routes/member.routes')(app)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
