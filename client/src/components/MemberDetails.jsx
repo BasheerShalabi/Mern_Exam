@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import DeleteButton from "./Deletebutton";
 import { useEffect } from "react";
+import DeleteButton from "./DeleteButton";
 
 const MemberDetails = () => {
 
@@ -22,7 +22,7 @@ const MemberDetails = () => {
     useEffect(() => {
         fetchMember()
     }, [])
-    
+
     return (
         <div>
             <h2 className=" m-4">Member Name :    {member.fullname}</h2>
@@ -31,10 +31,10 @@ const MemberDetails = () => {
 
             <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex justify-content-between align-items-center">
-                    <Link  className="btn btn-primary" to={`/members/edit/${member._id}`}>Edit</Link>
+                    <Link className="btn btn-primary" to={`/members/edit/${member._id}`}>Edit</Link>
                     <DeleteButton id={member._id} deleteHandler={() => redirect('/')} />
                 </div>
-                <Link  className="btn btn-primary" to={`/`}>Go home</Link>
+                <Link className="btn btn-primary" to={`/`}>Go home</Link>
             </div>
         </div>
     )

@@ -1,17 +1,17 @@
+import DeleteButton from "./DeleteButton";
 import { Link } from "react-router-dom";
-import DeleteButton from "./Deletebutton";
 const TableComponent = (props) => {
-    const {check , data , handleChange , handleDelete} = props;
+    const { check, data, handleChange, handleDelete } = props;
     const rows = data.map((item, index) => (
         <tr key={index}>
-            {check ? <th><input type="checkbox" onChange={(e)=>handleChange(e,item)} defaultChecked={item.attending}/></th> : null}
+            {check ? <th><input type="checkbox" onChange={(e) => handleChange(e, item)} defaultChecked={item.attending} /></th> : null}
             <td><Link to={`/members/${item._id}`}>{item.fullname}</Link></td>
             <td>{item.attending ? "Present" : "Absent"}</td>
-            <td><DeleteButton id={item._id} deleteHandler={handleDelete}/></td>
+            <td><DeleteButton id={item._id} deleteHandler={handleDelete} /></td>
         </tr>
     ))
-  return (
-    <table className="table">
+    return (
+        <table className="table">
             <thead>
                 <tr>
                     {check ? <th scope="col">#</th> : null}
@@ -24,7 +24,7 @@ const TableComponent = (props) => {
                 {rows}
             </tbody>
         </table>
-  )
+    )
 }
 
 export default TableComponent
